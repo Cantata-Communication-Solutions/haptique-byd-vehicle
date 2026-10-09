@@ -1,0 +1,4 @@
+# Preserve the published runtime ZIP bytes on Windows checkouts.
+byd_vehicle.py text eol=lf
+byd_vehicle.driver.json text eol=lf
+requirements.txt text eol=lf

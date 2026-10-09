@@ -36,4 +36,6 @@ GitHub Actions runs the driver checks on Linux, macOS and Windows with Python 3.
 
 Use [USER_ACCEPTANCE.md](USER_ACCEPTANCE.md) to record these checks. The release remains a community developer beta until they pass. Automated BYD behavior tests use test doubles; they do not demonstrate real car control.
 
+The unsigned registry checksum test exposed Windows CRLF checkout conversion: the rebuilt ZIP differed from the public LF-based release. The same checksum mismatch was reproduced locally using CRLF copies. `.gitattributes` fixes the three runtime package files to LF so Windows rebuilds preserve the existing published ZIP checksum. The beta release/tag/assets remain unchanged.
+
 The public registry has an existing dependency-audit finding in its validator dependencies. No registry dependency or schema change is included in this driver submission.
