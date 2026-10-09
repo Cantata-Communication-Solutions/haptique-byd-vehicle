@@ -1,0 +1,48 @@
+{
+  "id": "com.haptique.community.byd-vehicle",
+  "name": "BYD Vehicle",
+  "type": "driver",
+  "version": "0.1.0-beta.1",
+  "summary": "BYD vehicle status and supported controls for community testing.",
+  "description": "Developer beta. Source and local-upload ZIP are available in the source repository. Real-vehicle testing and Haptique review/signing are required before an installable Kitchen release. Location sharing is off by default.",
+  "author": "Haptique community",
+  "trustLevel": "community",
+  "tags": [
+    "byd",
+    "vehicle",
+    "ev",
+    "cloud"
+  ],
+  "deviceClass": "sensor",
+  "capabilities": [
+    "device_discovery",
+    "state_updates",
+    "telemetry",
+    "lock",
+    "climate"
+  ],
+  "permissions": [
+    "cloud_access",
+    "device_control",
+    "credential_storage",
+    "background_service",
+    "local_network"
+  ],
+  "compatibility": {
+    "haptiqueOS": ">=1.2.0-rc.3"
+  },
+  "source": {
+    "repo": "https://github.com/Cantata-Communication-Solutions/haptique-byd-vehicle",
+    "docs": "https://github.com/Cantata-Communication-Solutions/haptique-byd-vehicle#readme",
+    "issues": "https://github.com/Cantata-Communication-Solutions/haptique-byd-vehicle/issues"
+  },
+  "driver": {
+    "key": "BYD_VEHICLE",
+    "logicalDeviceUi": {
+      "defaultLayout": "sensor",
+      "primaryControls": [
+        "refresh_state"
+      ]
+    }
+  }
+}

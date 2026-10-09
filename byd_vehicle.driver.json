@@ -1,0 +1,151 @@
+{
+  "key": "BYD_VEHICLE",
+  "name": "BYD Vehicle",
+  "version": "0.1.0-beta.1",
+  "vendor": "Community",
+  "description": "BYD vehicle status and supported controls.",
+  "iotClass": "cloud_polling",
+  "driverType": "python",
+  "driverFile": "byd_vehicle.py",
+  "capabilities": [
+    "device_discovery",
+    "state_updates",
+    "telemetry",
+    "lock",
+    "climate"
+  ],
+  "properties": [
+    {
+      "key": "username",
+      "label": "BYD account",
+      "type": "string",
+      "required": true,
+      "description": "Email or phone number."
+    },
+    {
+      "key": "password",
+      "label": "Password",
+      "type": "string",
+      "required": true
+    },
+    {
+      "key": "countryCode",
+      "label": "Account country",
+      "type": "string",
+      "required": true,
+      "description": "Two-letter country code, such as IN or GB."
+    },
+    {
+      "key": "controlPin",
+      "label": "Control PIN",
+      "type": "string",
+      "required": false,
+      "description": "Leave empty for status only."
+    },
+    {
+      "key": "pollSeconds",
+      "label": "Refresh interval",
+      "type": "number",
+      "required": false,
+      "defaultValue": 900,
+      "description": "Seconds between updates; minimum 300."
+    },
+    {
+      "key": "includeLocation",
+      "label": "Share location",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": false
+    },
+    {
+      "key": "language",
+      "label": "Language",
+      "type": "string",
+      "required": false,
+      "defaultValue": "en"
+    },
+    {
+      "key": "timeZone",
+      "label": "Time zone",
+      "type": "string",
+      "required": false,
+      "defaultValue": "UTC"
+    },
+    {
+      "key": "controllerUrl",
+      "label": "Controller address",
+      "type": "string",
+      "required": false,
+      "description": "Leave empty on the controller."
+    }
+  ],
+  "commands": [
+    {
+      "key": "refresh_state",
+      "label": "Refresh"
+    },
+    {
+      "key": "lock",
+      "label": "Lock"
+    },
+    {
+      "key": "unlock",
+      "label": "Unlock"
+    },
+    {
+      "key": "start_climate",
+      "label": "Start climate"
+    },
+    {
+      "key": "stop_climate",
+      "label": "Stop climate"
+    },
+    {
+      "key": "find_car",
+      "label": "Find car"
+    },
+    {
+      "key": "flash_lights",
+      "label": "Flash lights"
+    },
+    {
+      "key": "close_windows",
+      "label": "Close windows"
+    }
+  ],
+  "events": [
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "state_update",
+      "field": "extras.status"
+    }
+  ],
+  "envMap": {
+    "username": "BYD_USERNAME",
+    "password": "BYD_PASSWORD",
+    "countryCode": "BYD_COUNTRY_CODE",
+    "controlPin": "BYD_CONTROL_PIN",
+    "pollSeconds": "BYD_POLL_SECONDS",
+    "includeLocation": "BYD_INCLUDE_LOCATION",
+    "language": "BYD_LANGUAGE",
+    "timeZone": "BYD_TIME_ZONE",
+    "controllerUrl": "HOS_WS_URL"
+  },
+  "io": {
+    "inputs": [
+      {
+        "key": "cloud",
+        "label": "BYD account",
+        "signal": "network"
+      }
+    ],
+    "outputs": [
+      {
+        "key": "control",
+        "label": "Vehicle control",
+        "signal": "control"
+      }
+    ]
+  }
+}
