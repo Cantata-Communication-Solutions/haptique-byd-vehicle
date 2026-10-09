@@ -11,6 +11,7 @@ Version: `0.1.0-beta.1`. Local checks recorded on 2026-10-09.
 | HOS regression tests | 14 passed across 3 suites | `integration-package-installer`, `driver-package-zip-safety`, `driver-ws-server` |
 | Actual ZIP through HOS installer | Passed | Real installer/catalog activation, exact installed source, actual dependency venv installation and installed `--check`, disposable temporary storage |
 | Public registry validator | Passed | Two listings accepted, including the new source-only community entry |
+| GitHub Actions | Passed | [Run 37911481627](https://github.com/Cantata-Communication-Solutions/haptique-byd-vehicle/actions/runs/37911481627): all six Linux/macOS/Windows × Python 3.11/3.13 jobs passed for source commit `07ba171746e94cfc3b231cb6034e2712a6765440` |
 
 HOS source used for installer/regression checks: `c0b9aa5f47b3795596f000e3e224518699153b88`. Its source files were unchanged. Dependencies were supplied from the existing development checkout. No installed app, account, production service or user database was modified.
 
@@ -23,7 +24,7 @@ node scripts/verify_hos_package.cjs /absolute/path/to/hos --install-deps
 
 The script overrides runtime storage with a new temporary directory and removes it afterward. It contacts PyPI only when installing dependencies, and never contacts BYD. Set `HAPTIQUE_PYTHON_BIN` locally if the default Python is unsuitable.
 
-GitHub Actions runs the driver checks on Linux, macOS and Windows with Python 3.11 and 3.13. Check the public repository's Actions page for the actual run status; this document does not predeclare CI results.
+GitHub Actions runs the driver checks on Linux, macOS and Windows with Python 3.11 and 3.13. The run linked above confirms the original driver source; consult Actions for subsequent commits.
 
 ## Pending acceptance
 
