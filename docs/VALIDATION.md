@@ -32,7 +32,7 @@ GitHub Actions runs the driver checks on Linux, macOS and Windows with Python 3.
 - Measured vehicle telemetry, physical command execution and state convergence, including sleeping/offline cars and ambiguous timeouts.
 - Normal packaged HOS GUI launch, Python discovery, settings entry, Logical Device rendering and control flow.
 - Upgrade, uninstall and rollback in a user's normal HOS installation.
-- Maintainer review, secure signing of the exact artifact and reconciliation of the public registry's signed-artifact schema before one-click Kitchen installation.
+- Acceptance and release of the HOS unsigned community-install runtime policy, plus acceptance of the registry artifact listing, before existing users can install from Kitchen without a signature.
 
 Use [USER_ACCEPTANCE.md](USER_ACCEPTANCE.md) to record these checks. The release remains a community developer beta until they pass. Automated BYD behavior tests use test doubles; they do not demonstrate real car control.
 

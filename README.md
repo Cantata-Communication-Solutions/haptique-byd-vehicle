@@ -35,9 +35,11 @@ A dedicated BYD account can reduce conflicts with the main mobile app's session.
 
 ## Registry status
 
-The submission JSON is in `registry/com.haptique.community.byd-vehicle.json`, with trust level `community`. It is intentionally **source-only** until Haptique reviews and signs a final artifact. Current HOS requires an approved Ed25519 signature and checksum for one-click Kitchen installation. The public registry schema also needs its existing signature-contract reconciliation before it can accept signed artifact metadata. Local ZIP upload is the developer-testing path described above.
+The submission JSON is in `registry/com.haptique.community.byd-vehicle.json`, with trust level `community`, the public release ZIP URL and its SHA256. Community drivers no longer need a Haptique signing request under the new Kitchen policy.
 
-After review: Haptique rebuilds the allowlisted ZIP, signs its exact hash through the approved signer, publishes the exact artifact, and adds `artifact.downloadUrl`, `artifact.sha256`, `artifact.signature` and `artifact.signingKeyId` to the listing. No private signing keys are given to developers or committed here.
+Once the HOS community-install runtime update and registry listing are accepted, refresh Kitchen, choose **Install**, review source and permissions, then choose **Trust & install**. Each unsigned update requires fresh trust. Verified and Haptique-owned packages retain signing. This driver remains outside HOS core and real-vehicle acceptance is still pending.
+
+Older installed HOS releases still require a signature in Kitchen; use the **Upload Driver** steps above until the runtime update is shipped. A registry refresh alone cannot change their installer. Community code and Python dependency installation run with the hub's process privileges; install only if you trust the developer.
 
 ## Developer setup
 

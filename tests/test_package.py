@@ -28,12 +28,16 @@ def test_package_reproducible_allowlist_and_installer_shape(tmp_path):
     assert hashlib.sha256(first.read_bytes()).hexdigest() in first.with_suffix(".zip.sha256").read_text()
 
 
-def test_registry_is_source_only_and_not_verified():
+def test_registry_points_to_unsigned_release_and_remains_community(tmp_path):
     listing = json.loads((ROOT / "registry/com.haptique.community.byd-vehicle.json").read_text())
     manifest = json.loads((ROOT / "byd_vehicle.driver.json").read_text())
     assert listing["version"] == manifest["version"]
     assert listing["trustLevel"] == "community"
-    assert "artifact" not in listing
+    artifact = listing["artifact"]
+    assert artifact["downloadUrl"].endswith(f"/v{manifest['version']}/haptique-byd-vehicle-{manifest['version']}.zip")
+    assert artifact["sha256"] == hashlib.sha256(build(tmp_path / "registry.zip").read_bytes()).hexdigest()
+    assert "signature" not in artifact
+    assert "signingKeyId" not in artifact
     assert listing["driver"]["key"] == manifest["key"]
     assert "credential_storage" in listing["permissions"]
 
