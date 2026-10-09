@@ -4,7 +4,7 @@
   "type": "driver",
   "version": "0.1.0-beta.1",
   "summary": "BYD vehicle status and supported controls for community testing.",
-  "description": "Developer beta. Source and local-upload ZIP are available in the source repository. Real-vehicle testing and Haptique review/signing are required before an installable Kitchen release. Location sharing is off by default.",
+  "description": "Community beta installed from its GitHub release after explicit developer trust. Real-vehicle acceptance remains pending. Location sharing is off by default. Requires HOS 1.2.1-rc.5 or newer; older HOS releases require manual Upload Driver.",
   "author": "Haptique community",
   "trustLevel": "community",
   "tags": [
@@ -29,7 +29,7 @@
     "local_network"
   ],
   "compatibility": {
-    "haptiqueOS": ">=1.2.0-rc.3"
+    "haptiqueOS": ">=1.2.1-rc.5"
   },
   "source": {
     "repo": "https://github.com/Cantata-Communication-Solutions/haptique-byd-vehicle",
@@ -44,5 +44,9 @@
         "refresh_state"
       ]
     }
+  },
+  "artifact": {
+    "downloadUrl": "https://github.com/Cantata-Communication-Solutions/haptique-byd-vehicle/releases/download/v0.1.0-beta.1/haptique-byd-vehicle-0.1.0-beta.1.zip",
+    "sha256": "6c717e66900e2aa4a9a8294a541d9559fc795463c629233c2add0d072eb1c8fe"
   }
 }
